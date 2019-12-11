@@ -232,9 +232,9 @@ public class Tela_Principal extends javax.swing.JFrame {
         Voo voo = new Voo();
         voo = VooDAO.getVooById(id);
         jlblCodVoo.setText(Integer.toString(voo.getIdVoo()));
-        jlblCompanhia.setText(VooDAO.getCompanhia(voo.getId_companhia()));
-        jblAeroPartida.setText(VooDAO.getAeroporto(voo.getAero_partida()));
-        jlblAero_chegada.setText(VooDAO.getAeroporto(voo.getAero_chegada()));
+        jlblCompanhia.setText(voo.getCompanhia());
+        jblAeroPartida.setText(voo.getAero_partida());
+        jlblAero_chegada.setText(voo.getAero_chegada());
         jblStatus.setText(voo.getSituacao());
         jlblPortao.setText(voo.getPortao());
         jlblPrevisao.setText(voo.getPrevisao());

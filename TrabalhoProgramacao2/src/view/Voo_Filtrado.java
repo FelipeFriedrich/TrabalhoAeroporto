@@ -422,7 +422,7 @@ public class Voo_Filtrado extends javax.swing.JFrame {
             nomePart1.setText(VooDAO.getAeroporto(voo1.getAero_partida()));
             nomeChega1.setText(VooDAO.getAeroporto(voo1.getAero_chegada()));
             vlrDta1.setText(voo1.getData_hora());
-            vlrComp1.setText(VooDAO.getCompanhia(voo1.getId_companhia()));
+            vlrComp1.setText(VooDAO.getCompanhia(voo1.getCompanhia()));
             if(contador != -2){
                 if(contador != -1){
                     if(contador != 0){

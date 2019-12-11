@@ -18,7 +18,7 @@ import model.Voo;
  */
 public class VooDAO {
     
-    public static void inserir(Voo cat){
+    /*public static void inserir(Voo cat){
         String query = "INSERT INTO categorias "
                 + " ( nome ) VALUES ( "
                 + " '" + cat.getIdVoo() + "'  ); ";
@@ -48,6 +48,7 @@ public class VooDAO {
                 while ( rs1.next() )
                 var = rs1.getInt( 1 );
             } catch (Exception e) {
+                return null;
             }
         }   
         ResultSet rs;
@@ -68,7 +69,7 @@ public class VooDAO {
                 while ( rs.next() ) {                    
                     Voo voo = new Voo();
                     voo.setIdVoo( rs.getInt( 1 ) );
-                    voo.setId_companhia( rs.getInt( 2 ) );
+                    voo.setCompanhia( rs.getInt( 2 ) );
                     voo.setAero_partida(rs.getInt( 3 )  );
                     voo.setAero_chegada(rs.getInt( 4 )  );
                     voo.setPortao(rs.getString( 5 )  );
@@ -78,6 +79,7 @@ public class VooDAO {
                     lista.add( voo );
                 }
             } catch (Exception e) {
+                return null;
             }
         }
         return lista;

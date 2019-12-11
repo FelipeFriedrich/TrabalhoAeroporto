@@ -12,7 +12,7 @@ import java.util.Date;
  * @author Felipe TI
  */
 public class Voo {
-    private int idVoo, id_companhia, aero_partida, aero_chegada;
+    private int idVoo, companhia, aero_partida, aero_chegada;
     private String cod_passagem, portao, previsao,situacao, data_hora;
     public int getIdVoo() {
         return idVoo;
@@ -22,12 +22,12 @@ public class Voo {
         this.idVoo = idVoo;
     }
 
-    public int getId_companhia() {
-        return id_companhia;
+    public int getCompanhia() {
+        return companhia;
     }
 
-    public void setId_companhia(int id_companhia) {
-        this.id_companhia = id_companhia;
+    public void setCompanhia(int id_companhia) {
+        this.companhia = id_companhia;
     }
 
     public int getAero_partida() {
