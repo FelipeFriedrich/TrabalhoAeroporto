@@ -106,7 +106,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Tela_Principal tela = new Tela_Principal();
+        Tela_Principal tela = new Tela_Principal();      
         String var = txtCodPassagem.getText();
         int test;
         

@@ -12,38 +12,18 @@ import java.util.Date;
  * @author Felipe TI
  */
 public class Voo {
-    private int idVoo, companhia, aero_partida, aero_chegada;
-    private String cod_passagem, portao, previsao,situacao, data_hora;
+
+    private int idVoo;
+    public Companhia_Aerea companhia;
+    public Aeroporto aero_partida, aero_chegada;
+    private String cod_passagem, portao, previsao, situacao, data_hora;
+
     public int getIdVoo() {
         return idVoo;
     }
 
     public void setIdVoo(int idVoo) {
         this.idVoo = idVoo;
-    }
-
-    public int getCompanhia() {
-        return companhia;
-    }
-
-    public void setCompanhia(int id_companhia) {
-        this.companhia = id_companhia;
-    }
-
-    public int getAero_partida() {
-        return aero_partida;
-    }
-
-    public void setAero_partida(int aero_partida) {
-        this.aero_partida = aero_partida;
-    }
-
-    public int getAero_chegada() {
-        return aero_chegada;
-    }
-
-    public void setAero_chegada(int aero_chegada) {
-        this.aero_chegada = aero_chegada;
     }
 
     public String getCod_passagem() {
@@ -85,6 +65,30 @@ public class Voo {
     public void setData_hora(String data_hora) {
         this.data_hora = data_hora;
     }
+
+    public Companhia_Aerea getCompanhia() {
+        return companhia;
+    }
+
+    public void setCompanhia(Companhia_Aerea companhia) {
+        this.companhia = companhia;
+    }
+
+    public Aeroporto getAero_partida() {
+        return aero_partida;
+    }
+
+    public void setAero_partida(Aeroporto aero_partida) {
+        this.aero_partida = aero_partida;
+    }
+
+    public Aeroporto getAero_chegada() {
+        return aero_chegada;
+    }
+
+    public void setAero_chegada(Aeroporto aero_chegada) {
+        this.aero_chegada = aero_chegada;
+    }
     
-   
+
 }

@@ -15,6 +15,7 @@ import model.Voo;
  */
 public class Tela_Principal extends javax.swing.JFrame {
     int var = 0;
+    Tela_Principal tela1;
     /**
      * Creates new form Tela_Principal2
      */
@@ -232,9 +233,9 @@ public class Tela_Principal extends javax.swing.JFrame {
         Voo voo = new Voo();
         voo = VooDAO.getVooById(id);
         jlblCodVoo.setText(Integer.toString(voo.getIdVoo()));
-        jlblCompanhia.setText(voo.getCompanhia());
-        jblAeroPartida.setText(voo.getAero_partida());
-        jlblAero_chegada.setText(voo.getAero_chegada());
+        jlblCompanhia.setText(voo.companhia.getNome_Fantasia());
+        jblAeroPartida.setText(voo.getAero_partida().getNome_Fantasia());
+        jlblAero_chegada.setText(voo.getAero_chegada().getNome_Fantasia());
         jblStatus.setText(voo.getSituacao());
         jlblPortao.setText(voo.getPortao());
         jlblPrevisao.setText(voo.getPrevisao());
@@ -259,15 +260,13 @@ public class Tela_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Gerar_Check tela = new Gerar_Check();
+        Gerar_Check tela = new Gerar_Check(this);
         tela.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Mapa tela = new Mapa();
+        Mapa tela = new Mapa(this);
         tela.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

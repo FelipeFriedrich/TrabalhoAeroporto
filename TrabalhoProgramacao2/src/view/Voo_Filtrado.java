@@ -8,6 +8,7 @@ package view;
 import dao.VooDAO;
 import model.Voo;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,6 +21,7 @@ public class Voo_Filtrado extends javax.swing.JFrame {
     List<Voo> voos;
     int contador;
     int pagina = 1;
+    Voo voo1,voo2,voo3,voo4;
 
     /**
      * Creates new form Voo_Filtrado
@@ -166,6 +168,11 @@ public class Voo_Filtrado extends javax.swing.JFrame {
         vlrDta2.setText("11/10/2019 12:30");
 
         btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         vlrComp2.setText("Latam");
 
@@ -198,97 +205,96 @@ public class Voo_Filtrado extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DtaHora1)
-                                    .addComponent(Comp1))
-                                .addGap(95, 95, 95)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(vlrDta1)
-                                    .addComponent(vlrComp1)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AeroPart1)
-                                    .addComponent(AeroChega1))
-                                .addGap(70, 70, 70)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nomeChega1)
-                                    .addComponent(nomePart1))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addComponent(jbtnSelecionar1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DtaHora3)
-                                    .addComponent(Comp3))
-                                .addGap(95, 95, 95)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(vlrDta3)
-                                    .addComponent(vlrComp3)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AeroPart3)
-                                    .addComponent(AeroChega3))
-                                .addGap(70, 70, 70)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nomeChega3)
-                                    .addComponent(nomePart3))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbtnSelecionar3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DtaHora4)
-                                    .addComponent(Comp4))
-                                .addGap(95, 95, 95)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(vlrDta4)
-                                    .addComponent(vlrComp4)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AeroPart4)
-                                    .addComponent(AeroChega4))
-                                .addGap(70, 70, 70)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nomeChega4)
-                                    .addComponent(nomePart4))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbtnSelecionar4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DtaHora2)
-                                    .addComponent(Comp2))
-                                .addGap(95, 95, 95)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(vlrDta2)
-                                    .addComponent(vlrComp2)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AeroPart2)
-                                    .addComponent(AeroChega2))
-                                .addGap(70, 70, 70)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nomeChega2)
-                                    .addComponent(nomePart2))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbtnSelecionar2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnVoltar)
-                        .addGap(18, 18, 18)
+                        .addGap(27, 27, 27)
                         .addComponent(jlblPagina)
-                        .addGap(18, 18, 18)
+                        .addGap(31, 31, 31)
                         .addComponent(btnAvancar)
-                        .addGap(109, 109, 109))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(DtaHora1)
+                                            .addComponent(Comp1))
+                                        .addGap(95, 95, 95)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(vlrDta1)
+                                            .addComponent(vlrComp1)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(AeroPart1)
+                                            .addComponent(AeroChega1))
+                                        .addGap(70, 70, 70)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(nomeChega1)
+                                            .addComponent(nomePart1))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addComponent(jbtnSelecionar1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(DtaHora3)
+                                            .addComponent(Comp3))
+                                        .addGap(95, 95, 95)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(vlrDta3)
+                                            .addComponent(vlrComp3)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(AeroPart3)
+                                            .addComponent(AeroChega3))
+                                        .addGap(70, 70, 70)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(nomeChega3)
+                                            .addComponent(nomePart3))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbtnSelecionar3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(DtaHora4)
+                                            .addComponent(Comp4))
+                                        .addGap(95, 95, 95)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(vlrDta4)
+                                            .addComponent(vlrComp4)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(AeroPart4)
+                                            .addComponent(AeroChega4))
+                                        .addGap(70, 70, 70)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(nomeChega4)
+                                            .addComponent(nomePart4))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbtnSelecionar4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(DtaHora2)
+                                            .addComponent(Comp2))
+                                        .addGap(95, 95, 95)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(vlrDta2)
+                                            .addComponent(vlrComp2)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(AeroPart2)
+                                            .addComponent(AeroChega2))
+                                        .addGap(70, 70, 70)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(nomeChega2)
+                                            .addComponent(nomePart2))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbtnSelecionar2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(38, 38, 38))))
             .addComponent(jSeparator3)
         );
         layout.setVerticalGroup(
@@ -407,11 +413,19 @@ public class Voo_Filtrado extends javax.swing.JFrame {
     }
     
     private void carregarPagina(){
-       contador = voos.size() - pagina*4;
-        
+       contador = voos.size() + 1 - pagina*4;
+       btnVoltar.setVisible(true);
+       btnAvancar.setVisible(true);
+       if(contador == voos.size()+1 - 1*4){
+         btnVoltar.setVisible(false);
+       }
+       if(contador == 0 || paginas == 0){
+         btnAvancar.setVisible(false);
+       }
        if(contador != -3){
-        Voo voo1 = voos.get(pagina*4-4);
+        voo1 = voos.get(pagina*4-4);
             AeroPart1.setVisible(true);
+            jbtnSelecionar1.setVisible(true);
             AeroChega1.setVisible(true);
             DtaHora1.setVisible(true);
             Comp1.setVisible(true);
@@ -419,13 +433,59 @@ public class Voo_Filtrado extends javax.swing.JFrame {
             nomeChega1.setVisible(true);
             vlrDta1.setVisible(true);
             vlrComp1.setVisible(true);
-            nomePart1.setText(VooDAO.getAeroporto(voo1.getAero_partida()));
-            nomeChega1.setText(VooDAO.getAeroporto(voo1.getAero_chegada()));
+            jSeparator1.setVisible(true);
+            nomePart1.setText(voo1.getAero_partida().getNome_Fantasia());
+            nomeChega1.setText(voo1.getAero_chegada().getNome_Fantasia());
             vlrDta1.setText(voo1.getData_hora());
-            vlrComp1.setText(VooDAO.getCompanhia(voo1.getCompanhia()));
+            vlrComp1.setText(voo1.getCompanhia().getNome_Fantasia());
             if(contador != -2){
+                voo2 = voos.get(pagina*4-3);
+                AeroPart2.setVisible(true);
+                jbtnSelecionar2.setVisible(true);
+                AeroChega2.setVisible(true);
+                DtaHora2.setVisible(true);
+                Comp2.setVisible(true);
+                nomePart2.setVisible(true);
+                nomeChega2.setVisible(true);
+                vlrDta2.setVisible(true);
+                vlrComp2.setVisible(true);
+                jSeparator2.setVisible(true);
+                nomePart2.setText(voo2.getAero_partida().getNome_Fantasia());
+                nomeChega2.setText(voo2.getAero_chegada().getNome_Fantasia());
+                vlrDta2.setText(voo2.getData_hora());
+                vlrComp2.setText(voo2.getCompanhia().getNome_Fantasia());
                 if(contador != -1){
+                voo3 = voos.get(pagina*4-3);
+                AeroPart3.setVisible(true);
+                jbtnSelecionar3.setVisible(true);
+                AeroChega3.setVisible(true);
+                DtaHora3.setVisible(true);
+                Comp3.setVisible(true);
+                nomePart3.setVisible(true);
+                nomeChega3.setVisible(true);
+                vlrDta3.setVisible(true);
+                vlrComp3.setVisible(true);
+                jSeparator3.setVisible(true);
+                nomePart3.setText(voo3.getAero_partida().getNome_Fantasia());
+                nomeChega3.setText(voo3.getAero_chegada().getNome_Fantasia());
+                vlrDta3.setText(voo3.getData_hora());
+                vlrComp3.setText(voo3.getCompanhia().getNome_Fantasia());
                     if(contador != 0){
+                voo4 = voos.get(pagina*4-3);
+                AeroPart4.setVisible(true);
+                jbtnSelecionar4.setVisible(true);
+                AeroChega4.setVisible(true);
+                DtaHora4.setVisible(true);
+                Comp4.setVisible(true);
+                nomePart4.setVisible(true);
+                nomeChega4.setVisible(true);
+                vlrDta4.setVisible(true);
+                vlrComp4.setVisible(true);
+                jSeparator4.setVisible(true);
+                nomePart4.setText(voo4.getAero_partida().getNome_Fantasia());
+                nomeChega4.setText(voo4.getAero_chegada().getNome_Fantasia());
+                vlrDta4.setText(voo4.getData_hora());
+                vlrComp4.setText(voo4.getCompanhia().getNome_Fantasia());
                         
                     }
                 }
@@ -478,15 +538,19 @@ public class Voo_Filtrado extends javax.swing.JFrame {
         jSeparator2.setVisible(false);
         jSeparator3.setVisible(false);
         jSeparator4.setVisible(false);
-        btnVoltar.setVisible(false);
-        btnAvancar.setVisible(false);
     }
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
-        // TODO add your handling code here:
+        
+        pagina++;
+        jlblPagina.setText(Integer.toString(pagina));
+        limpar();
+        carregarPagina();
     }//GEN-LAST:event_btnAvancarActionPerformed
 
     private void jbtnSelecionar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSelecionar1ActionPerformed
         Tela_Principal tela = new Tela_Principal();
+        String var = "";
+        tela.informações(voo1.getIdVoo(),var);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbtnSelecionar1ActionPerformed
@@ -496,21 +560,34 @@ public class Voo_Filtrado extends javax.swing.JFrame {
         
         
         Tela_Principal tela = new Tela_Principal();
+        String var = "";
+        tela.informações(voo2.getIdVoo(),var);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbtnSelecionar2ActionPerformed
 
     private void jbtnSelecionar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSelecionar3ActionPerformed
         Tela_Principal tela = new Tela_Principal();
+        String var = "";
+        tela.informações(voo3.getIdVoo(),var);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbtnSelecionar3ActionPerformed
 
     private void jbtnSelecionar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSelecionar4ActionPerformed
         Tela_Principal tela = new Tela_Principal();
+        String var = "";
+        tela.informações(voo4.getIdVoo(),var);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbtnSelecionar4ActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        pagina--;
+        jlblPagina.setText(Integer.toString(pagina));
+        limpar();
+        carregarPagina();
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments

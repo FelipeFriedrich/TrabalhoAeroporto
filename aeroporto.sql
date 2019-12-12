@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Dez-2019 às 04:58
--- Versão do servidor: 10.4.6-MariaDB
--- versão do PHP: 7.3.9
+-- Generation Time: 11-Dez-2019 às 23:00
+-- Versão do servidor: 10.1.36-MariaDB
+-- versão do PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `market`
+-- Database: `aeroporto`
 --
 
 -- --------------------------------------------------------
@@ -82,7 +82,12 @@ CREATE TABLE `passagem` (
 --
 
 INSERT INTO `passagem` (`id`, `passagem`, `codigo_voo`) VALUES
-(1, '1', 1);
+(1, '1', 1),
+(2, '17', 3),
+(3, '15', 6),
+(4, '13', 4),
+(5, '12', 5),
+(6, '11', 2);
 
 -- --------------------------------------------------------
 
@@ -107,28 +112,34 @@ CREATE TABLE `voo` (
 
 INSERT INTO `voo` (`cod_voo`, `Cod_Companhia_Aerea`, `Aero_Partida`, `Aero_Chegada`, `portao`, `previsao`, `situacao`, `datahora`) VALUES
 (1, 1, 1, 2, '7', '2019-12-17 11:00:00', 'No Horário', '2019-12-17 11:00:00'),
-(2, 1, 1, 2, '7', '2019-12-18 09:00:00', 'No Horário', '2019-12-18 00:00:00');
+(2, 1, 1, 2, '7', '2019-12-18 09:00:00', 'No Horário', '2019-12-18 00:00:00'),
+(3, 2, 2, 1, '10', '2019-12-17 17:00:00', 'Em solo', '2019-12-17 11:00:00'),
+(4, 2, 1, 2, '9', '2019-12-18 19:00:00', 'Atrasado', '2019-12-18 00:00:00'),
+(5, 2, 1, 1, '10', '2019-12-17 17:00:00', 'Em solo', '2019-12-17 18:00:00'),
+(6, 2, 1, 2, '9', '2019-12-18 19:00:00', 'Atrasado', '2019-12-18 15:00:00'),
+(7, 2, 1, 1, '10', '2019-12-17 17:00:00', 'Em solo', '2019-12-17 18:00:00'),
+(8, 2, 1, 2, '9', '2019-12-18 19:00:00', 'Atrasado', '2019-12-18 15:00:00');
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `aeroporto`
+-- Indexes for table `aeroporto`
 --
 ALTER TABLE `aeroporto`
   ADD PRIMARY KEY (`Codigo_Aeroporto`),
   ADD UNIQUE KEY `CNPJ` (`CNPJ`);
 
 --
--- Índices para tabela `companhia_aerea`
+-- Indexes for table `companhia_aerea`
 --
 ALTER TABLE `companhia_aerea`
   ADD PRIMARY KEY (`Codigo_Companhia`),
   ADD UNIQUE KEY `CNPJ` (`CNPJ`);
 
 --
--- Índices para tabela `passagem`
+-- Indexes for table `passagem`
 --
 ALTER TABLE `passagem`
   ADD PRIMARY KEY (`id`),
@@ -136,7 +147,7 @@ ALTER TABLE `passagem`
   ADD KEY `codigo_voo` (`codigo_voo`);
 
 --
--- Índices para tabela `voo`
+-- Indexes for table `voo`
 --
 ALTER TABLE `voo`
   ADD PRIMARY KEY (`cod_voo`),
@@ -145,23 +156,23 @@ ALTER TABLE `voo`
   ADD KEY `Aero_Chegada` (`Aero_Chegada`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `aeroporto`
+-- AUTO_INCREMENT for table `aeroporto`
 --
 ALTER TABLE `aeroporto`
   MODIFY `Codigo_Aeroporto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `companhia_aerea`
+-- AUTO_INCREMENT for table `companhia_aerea`
 --
 ALTER TABLE `companhia_aerea`
   MODIFY `Codigo_Companhia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --

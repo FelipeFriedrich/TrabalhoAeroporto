@@ -5,9 +5,12 @@
  */
 package view;
 
+import dao.Companhia_AereaDAO;
 import dao.VooDAO;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import model.Companhia_Aerea;
 import model.Voo;
 
 /**
@@ -21,6 +24,26 @@ public class Filtrar_Voo extends javax.swing.JFrame {
      */
     public Filtrar_Voo() {
         initComponents();
+        CarregarCompanhias();
+             
+
+    }
+    
+    private void CarregarCompanhias(){
+            
+        List<Companhia_Aerea> listaCompanhia = 
+                Companhia_AereaDAO.getCompanhias();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        Companhia_Aerea fake = new Companhia_Aerea();
+        fake.setId(0);
+        fake.setNome_Fantasia("Selecione...");
+        model.addElement( fake.getNome_Fantasia() );
+        for (Companhia_Aerea comp : listaCompanhia) {
+            model.addElement( comp.getNome_Fantasia() );
+        }
+        CbBoxCompanhia.setModel( model );
+        
+    
     }
 
     /**
@@ -145,15 +168,24 @@ public class Filtrar_Voo extends javax.swing.JFrame {
             
             Voo_Filtrado tela = new Voo_Filtrado();
             tela.limpar();
-            tela.filtrar(VooDAO.getVoosAeroporto(txtAeroportoEmbarque.getText(),'p'));
+            List<Voo> consulta = VooDAO.getVoosAeroporto(txtAeroportoEmbarque.getText(),'p');
+            if(consulta != null){
+            tela.filtrar(consulta);
             tela.setVisible(true);
             this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(this, "Não foram encontrado voos para esse aeroporto!");
+            }
+            
         }else if( !"".equals(txtAeroportoDesembarque.getText())) {
             Voo_Filtrado tela = new Voo_Filtrado();
             tela.limpar();
-            tela.filtrar(VooDAO.getVoosAeroporto(txtAeroportoEmbarque.getText(),'d'));
+            List<Voo> consulta = VooDAO.getVoosAeroporto(txtAeroportoDesembarque.getText(),'d');
+            if(consulta != null){
+            tela.filtrar(consulta);
             tela.setVisible(true);
             this.dispose();
+            }
         }else if(!"Selecione...".equals(CbBoxCompanhia.getSelectedItem())) {
             Voo_Filtrado tela = new Voo_Filtrado();
             tela.limpar();

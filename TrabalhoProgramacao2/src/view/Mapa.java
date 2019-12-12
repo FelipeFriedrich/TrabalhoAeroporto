@@ -10,11 +10,12 @@ package view;
  * @author Felipe TI
  */
 public class Mapa extends javax.swing.JFrame {
-
+        Tela_Principal tela1;
     /**
      * Creates new form Gerar_CheckIn
      */
-    public Mapa() {
+    public Mapa(Tela_Principal tela) {
+        tela1 = tela;
         initComponents();
     }
 
@@ -84,8 +85,7 @@ public class Mapa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Tela_Principal tela = new Tela_Principal();
-        tela.setVisible(true);
+        tela1.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
