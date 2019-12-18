@@ -229,7 +229,7 @@ public class Tela_Criar extends javax.swing.JFrame {
                   if(aerocheg != null){
                   int test = Integer.parseInt(jlblCodVoo.getText());
                   JOptionPane.showMessageDialog(this, test);
-                  voo.setIdVoo(2);
+                  voo.setIdVoo(Integer.parseInt(jlblCodVoo.getText()));
                   voo.setAero_partida(aeropart);
                   voo.setAero_chegada(aerocheg);
                   voo.setCompanhia(Comp);
