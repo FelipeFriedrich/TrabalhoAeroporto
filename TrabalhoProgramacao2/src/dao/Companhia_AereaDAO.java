@@ -40,4 +40,26 @@ public class Companhia_AereaDAO {
         }
         return lista;
     }
+     
+     public static Companhia_Aerea getCompanhia(String i){
+        
+       ResultSet rs;
+       Companhia_Aerea companhia = new Companhia_Aerea();
+       String query = "Select * from Companhia_aerea where Nome_fantasia = '" +i+"'";
+        rs = Conexao.consultar(query);
+        if( rs != null ){
+            try {
+                while ( rs.next() ) {
+                    
+                    companhia.setId(rs.getInt(1));
+                    companhia.setNome_Fantasia(rs.getString(2));
+                    companhia.setRazao_Social(rs.getString(3));
+                    companhia.setCNPJ(rs.getFloat(4));
+                }
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        return companhia;
+    }
 }

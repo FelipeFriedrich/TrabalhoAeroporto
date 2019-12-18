@@ -21,10 +21,17 @@ import model.Voo;
  */
 public class VooDAO {
     
-    /*public static void inserir(Voo cat){
-        String query = "INSERT INTO categorias "
-                + " ( nome ) VALUES ( "
-                + " '" + cat.getIdVoo() + "'  ); ";
+    public static void inserir(Voo voo){
+        String query = "INSERT INTO Voo "
+                + " ( cod_voo,Aero_Partida , Aero_chegada, Cod_Companhia_Aerea, portao ,previsao , situacao , datahora ) VALUES ( "
+                +  voo.getIdVoo() + ","
+                +  voo.getAero_partida(1) + ","
+                +  voo.getAero_chegada(1) + ","
+                +  voo.getCompanhia(1)+ ","
+                +  "'" + voo.getPortao() + "'," 
+                +  "'" + voo.getPrevisao()+ "'," 
+                +  "'" + voo.getData_hora()+ "'"
+                + " ); ";
         Conexao.executar( query );
     }
     
@@ -121,8 +128,7 @@ public class VooDAO {
         }
         return lista;
     }
-    
-    public static Voo getVooById( int idVoo ){
+   public static Voo getVooById( int idVoo ){
         String query = "SELECT c.cod_voo, c.portao, c.previsao, c.situacao, c.datahora, d.*, g.*,f.*" +
             " FROM voo C" +
             " INNER JOIN aeroporto d ON " +
